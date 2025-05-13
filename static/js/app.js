@@ -1,7 +1,7 @@
 const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const snap = document.getElementById('snap');
-const imageInput = document.getElementById('image');
+const imageInput = document.getElementById('image-upload');
 const toggle = document.getElementById('toggle');
 
 let stream = null;
@@ -56,9 +56,6 @@ snap.addEventListener('click', () => {
     }, "image/jpeg");
 });
 
-// Start camera on page load
-startCamera();
-
 const realtimeBtn = document.getElementById('realtime');
 const canvasResult = document.getElementById('canvas-result');
 let realtimeInterval = null;
@@ -100,3 +97,6 @@ realtimeBtn.addEventListener('click', () => {
         realtimeBtn.textContent = "Dừng Real-time";
     }
 });
+
+// Start camera on page load
+startCamera();
