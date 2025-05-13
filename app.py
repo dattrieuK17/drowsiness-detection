@@ -42,5 +42,28 @@ def index():
         return render_template('index.html', result='Xử lý xong', input_image=unique_name, output_image=output_name)
     return render_template('index.html')
 
+import base64
+from flask import jsonify
+
+@app.route('/realtime-detect', methods=['POST'])
+def realtime_detect():
+    file = request.files.get('image')
+    if not file:
+        return jsonify({'error': 'No image'}), 400
+
+    img_array = np.frombuffer(file.read(), np.uint8)
+    img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+    if img is None:
+        return jsonify({'error': 'Invalid image'}), 400
+
+    result_img = detect_eye_state(img)  # ảnh đã có landmark và label
+    _, buffer = cv2.imencode('.jpg', result_img)
+    img_base64 = base64.b64encode(buffer).decode('utf-8')
+
+    return jsonify({
+        'image': f'data:image/jpeg;base64,{img_base64}'
+    })
+
+
 if __name__ == '__main__':
     app.run(debug=True)
