@@ -59,22 +59,47 @@ def detect_eye_state(image):
 
     return image
 
-def detect_eye_state_video(video_path=0):
+def detect_eye_state_video(video_path=0, output_path=None):
+    # Mở video đầu vào
     cap = cv2.VideoCapture(video_path)
+    
+    # Lấy thông tin video (FPS, kích thước khung hình)
+    fps = int(cap.get(cv2.CAP_PROP_FPS))
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    
+    # Nếu output_path được cung cấp, thiết lập VideoWriter để lưu video
+    if output_path:
+        fourcc = cv2.VideoWriter_fourcc(*'H264')  # Codec cho file MP4, dùng mp4v bị lỗi
+        out = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+    else:
+        out = None
 
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
             break
 
-        detect_eye_state(frame)
+        # Xử lý frame (giả sử detect_eye_state trả về frame đã xử lý)
+        processed_frame = detect_eye_state(frame)
 
+        # Ghi frame đã xử lý vào video đầu ra nếu output_path được cung cấp
+        if out is not None:
+            out.write(processed_frame)
+
+        # # Hiển thị frame (tùy chọn)
+        # cv2.imshow('Processed Video', processed_frame)
+
+        # Nhấn 'q' để thoát
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
+    # Giải phóng tài nguyên
     cap.release()
+    if out is not None:
+        out.release()
     cv2.destroyAllWindows()
-    
+
 # if __name__ == "__main__":
 #     # open: "C:\Users\datta\Downloads\anhthe_900x1200.jpeg"
 #     # close: "C:\Users\datta\Downloads\R (1).jpeg"
