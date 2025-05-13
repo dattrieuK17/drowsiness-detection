@@ -1,32 +1,32 @@
 
 # Drowsiness Detection with OpenCV and MediaPipe Face Mesh
 
-Ứng dụng web phát hiện buồn ngủ có hỗ trợ theo thời gian dựng được xây dựng với Flask và OpenCV và MediaPipe Face MeshMesh. Hệ thống cho phép tải lên ảnh, video hoặc dùng real-timetime để phát hiện liệu đối tượng có đang buồn ngủ hay không.
+A real-time drowsiness detection web application built with Flask, OpenCV, and MediaPipe Face Mesh. The system allows users to upload images, videos, or use real-time webcam input to detect whether a person is drowsy.
 
-## 🧠 Mô tả dự án
+## 🧠 Project Description
 
-Ứng dụng sử dụng Flask làm backend, OpenCV để xử lý landmark cho mắt, Face Mesh để tìm ra các landmark của mắt. Với giao diện trực quan, người dùng có thể dễ dàng tải lên ảnh, video thậm chí video realtime từ webcam để phát hiện liệu đối tượng có đang buồn ngủ hay không.
+The application uses Flask as the backend, OpenCV to process eye landmarks, and MediaPipe Face Mesh to locate facial landmarks, especially around the eyes. With an intuitive interface, users can easily upload images, videos, or stream live from a webcam to detect drowsiness in real time.
 
-## 🛠️ Công nghệ sử dụng
+## 🛠️ Technologies
 
 - Python 3.x
 - Flask
 - MediaPipe Face MeshMesh
 - OpenCV
 
-## 📁 Cấu trúc thư mục
+## 📁 Project Structure
 
 ```
-drowsiness-detectiondetection/
+drowsiness-detection/
 ├── app.py                 # Flask application
-├── utils.py               # Hàm hỗ trợ tìm landmark, xác định eye state 
-├── requirements.txt       # Danh sách thư viện cần thiết
-├── templates/             # Giao diện HTML
-├── static/                # Chứa file js để xử lý logic
-└── uploads/               # Thư mục lưu ảnh tải lên
+├── utils.py               # Helper functions for landmark detection and eye state analysis
+├── requirements.txt       # List of required dependencies
+├── templates/             # HTML interface
+├── static/                # JavaScript files for frontend logic
+└── uploads/               # Folder to store uploaded images
 ```
 
-## 🚀 Cài đặt và chạy ứng dụng
+## 🚀 Installation and Running
 
 1. **Clone repository:**
 
@@ -35,29 +35,31 @@ drowsiness-detectiondetection/
    cd drowsiness-detection
    ```
 
-2. **Tạo môi trường ảo và cài đặt dependencies:**
+2. **Create a virtual environment and install dependencies:**
 
    ```bash
    python -m venv venv
-   source venv/bin/activate  # Trên Windows: venv\Scripts\activate
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
 
-3. **Chạy ứng dụng:**
+3. **Run:**
 
    ```bash
    python app.py
    ```
 
-4. **Truy cập ứng dụng:**
+4. **Access the application:**
 
-   Mở trình duyệt và truy cập `http://localhost:5000`.
+   Open your browser and go to `http://localhost:5000`.
 
-## 📸 Chức năng chính
+## 📸 Main Features
 
-- Tải lên ảnh, video để phát hiện trạng thái buồn ngủ.
-- Có hỗ trợ real-time
-- Hiển thị kết quả một cách trực quan trên giao diện web.
+- Upload images or videos to detect drowsiness.
+
+- Real-time webcam support.
+
+- Visualize detection results directly in the web interface.
 
 
