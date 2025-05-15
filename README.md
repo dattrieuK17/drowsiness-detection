@@ -1,5 +1,5 @@
 
-# Drowsiness Detection with OpenCV and MediaPipe Face Mesh
+# 🥱 Drowsiness Detection with OpenCV and MediaPipe Face Mesh
 
 A real-time drowsiness detection web application built with Flask, OpenCV, and MediaPipe Face Mesh. The system allows users to upload images, videos, or use real-time webcam input to detect whether a person is drowsy.
 
@@ -13,6 +13,9 @@ The application uses Flask as the backend, OpenCV to process eye landmarks, and 
 - Flask
 - MediaPipe Face MeshMesh
 - OpenCV
+
+## ✨ Demo
+![Introduce](static/demo_images/image.png)
 
 ## 📁 Project Structure
 
