@@ -11,7 +11,7 @@ The application uses Flask as the backend, OpenCV to process eye landmarks, and 
 
 - Python 3.x
 - Flask
-- MediaPipe Face MeshMesh
+- MediaPipe Face Mesh
 - OpenCV
 
 ## ✨ Demo
